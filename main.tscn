@@ -1,0 +1,82 @@
+[gd_scene format=4 uid="uid://cecksyld8lpbh"]
+
+[ext_resource type="Script" uid="uid://n0yf8sm4ud1o" path="res://main.gd" id="1_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://0e27jaj146vn" path="res://assets/backgrounds/bg_shroom.png" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://txtvxh61b34m" path="res://scenes/player.tscn" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://djdgq1wkwt4ey" path="res://scripts/fall_bound_area.gd" id="5_fba01"]
+[ext_resource type="Texture2D" uid="uid://bqpu8w4k7fl7b" path="res://assets/sprites/shroomBrownAltLeft.png" id="6_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://bs104j2en1j5u" path="res://assets/sprites/shroomBrownAltMid.png" id="7_w48qg"]
+[ext_resource type="PackedScene" uid="uid://cq84y4mrth2lp" path="res://scenes/frog.tscn" id="8_5vw27"]
+[ext_resource type="Texture2D" uid="uid://c2e1iwrt2vv2x" path="res://assets/sprites/shroomBrownAltRight.png" id="9_2cqfq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(10296, 113)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mycd"]
+texture = ExtResource("6_ycdy4")
+texture_region_size = Vector2i(70, 40)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35, -19, 35, -19, 35, 19.967564, -35, 20.048248)
+0:0/0/terrains_peering_bit/right_side = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
+texture = ExtResource("7_w48qg")
+texture_region_size = Vector2i(70, 40)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35, -19, 35, -19, 35, 19.967564, -35, 20.048248)
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/left_side = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kek77"]
+texture = ExtResource("9_2cqfq")
+texture_region_size = Vector2i(70, 40)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35, -19, 35, -19, 35, 19.967564, -35, 20.048248)
+0:0/0/terrains_peering_bit/left_side = 0
+
+[sub_resource type="TileSet" id="TileSet_272bh"]
+tile_size = Vector2i(70, 70)
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "BrownShroom 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_7mycd")
+sources/1 = SubResource("TileSetAtlasSource_5vw27")
+sources/2 = SubResource("TileSetAtlasSource_kek77")
+
+[node name="Main" type="Node2D" unique_id=465478721]
+script = ExtResource("1_1bvp3")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1181324670]
+scroll_offset = Vector2(-2272, -216)
+repeat_size = Vector2(2558, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1407494520]
+position = Vector2(688, -71.99999)
+scale = Vector2(2.4980469, 2.5390627)
+texture = ExtResource("1_ig7tw")
+
+[node name="Player" parent="." unique_id=1610166616 instance=ExtResource("3_h2yge")]
+position = Vector2(-91, 8)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=323968336]
+
+[node name="FallBoundArea" type="Area2D" parent="." unique_id=1000068805]
+position = Vector2(2844, 312)
+script = ExtResource("5_fba01")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallBoundArea" unique_id=785533858]
+position = Vector2(1948, 15.5)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=343646199]
+position = Vector2(2844, -216)
+tile_map_data = PackedByteArray("AAD3/wQAAQAAAAAAAAD2/wQAAAAAAAAAAAD4/wQAAQAAAAAAAAD5/wQAAQAAAAAAAAD6/wQAAQAAAAAAAAD7/wQAAQAAAAAAAAD8/wQAAQAAAAAAAAD9/wQAAQAAAAAAAAD+/wQAAQAAAAAAAAD//wQAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAQAAQAAAAAAAAACAAQAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAQAAgAAAAAAAADV/wUAAQAAAAAAAADU/wUAAAAAAAAAAADW/wUAAQAAAAAAAADX/wUAAQAAAAAAAADY/wUAAgAAAAAAAADd/wUAAQAAAAAAAADc/wUAAAAAAAAAAADe/wUAAQAAAAAAAADf/wUAAgAAAAAAAADj/wUAAQAAAAAAAADi/wUAAAAAAAAAAADk/wUAAQAAAAAAAADl/wUAAgAAAAAAAADp/wMAAQAAAAAAAADo/wMAAAAAAAAAAADq/wMAAQAAAAAAAADr/wMAAgAAAAAAAADv/wUAAQAAAAAAAADu/wUAAAAAAAAAAADw/wUAAQAAAAAAAADx/wUAAQAAAAAAAADy/wUAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_272bh")
+
+[node name="Frog" parent="." unique_id=1739875316 instance=ExtResource("8_5vw27")]
+position = Vector2(2768, -8)

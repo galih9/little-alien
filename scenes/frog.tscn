@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cq84y4mrth2lp"]
+
+[ext_resource type="Script" uid="uid://o5b4i87sbrnm" path="res://scripts/frog.gd" id="1_1g2vb"]
+[ext_resource type="Texture2D" uid="uid://i3hf4xfkvp0e" path="res://assets/enemies/frog_dead.png" id="1_rq8tc"]
+[ext_resource type="Texture2D" uid="uid://pnocpxugh206" path="res://assets/enemies/frog.png" id="2_1g2vb"]
+[ext_resource type="Texture2D" uid="uid://bjqbywgtdyjnr" path="res://assets/enemies/frog_move.png" id="3_ybftx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ifle"]
+radius = 24.0
+height = 48.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uu7fg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rq8tc")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1g2vb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ybftx")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1g2vb"]
+radius = 96.0
+height = 496.0
+
+[node name="Frog" type="CharacterBody2D" unique_id=1739875316]
+script = ExtResource("1_1g2vb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1540113361]
+shape = SubResource("CapsuleShape2D_4ifle")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1579851942]
+position = Vector2(9.536743e-07, -20.000004)
+scale = Vector2(0.625, 0.68749994)
+sprite_frames = SubResource("SpriteFrames_uu7fg")
+animation = &"idle"
+
+[node name="Vision" type="Area2D" parent="." unique_id=1536468753]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision" unique_id=1521508000]
+position = Vector2(0, -72)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_1g2vb")
+
+[node name="InitialPosition" type="Marker2D" parent="." unique_id=1409552055]
+
+[node name="JumpDelay" type="Timer" parent="." unique_id=1546450342]
+wait_time = 0.3

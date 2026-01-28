@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://txtvxh61b34m"]
+
+[ext_resource type="Texture2D" uid="uid://dgw1tlb20nq8u" path="res://assets/players/Pink/alienPink_stand.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://dfq8h74ukk0of" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://b6ywio25sms8i" path="res://assets/players/Pink/alienPink_climb1.png" id="2_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://baremv76bbw2e" path="res://assets/players/Pink/alienPink_climb2.png" id="3_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://ckn07vlp5l2q7" path="res://assets/players/Pink/alienPink_duck.png" id="4_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://gc8fir3a1vx7" path="res://assets/players/Pink/alienPink_front.png" id="5_jej6c"]
+[ext_resource type="Texture2D" uid="uid://cqh73e7208jxj" path="res://assets/players/Pink/alienPink_hit.png" id="6_f1ej7"]
+[ext_resource type="Texture2D" uid="uid://bmuj268ge4arp" path="res://assets/players/Pink/alienPink_jump.png" id="7_oprun"]
+[ext_resource type="Texture2D" uid="uid://c61d3nsf8opca" path="res://assets/players/Pink/alienPink_walk1.png" id="9_a8ls1"]
+[ext_resource type="Texture2D" uid="uid://chjupm6tdcm57" path="res://assets/players/Pink/alienPink_walk2.png" id="10_qfm1y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
+radius = 56.0
+height = 160.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qhqgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y4r1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_d2wvv")
+}],
+"loop": true,
+"name": &"climb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_3v2ag")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jej6c")
+}],
+"loop": true,
+"name": &"front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_f1ej7")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_oprun")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3vyb7")
+}],
+"loop": true,
+"name": &"standing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_a8ls1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qfm1y")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=1610166616]
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=478313115]
+shape = SubResource("CapsuleShape2D_g2els")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=283118332]
+position = Vector2(-9.536743e-07, 0)
+scale = Vector2(0.86090225, 0.84782606)
+sprite_frames = SubResource("SpriteFrames_qhqgy")
+animation = &"standing"
+frame_progress = 0.029916558
