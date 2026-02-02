@@ -62,4 +62,9 @@ shape = SubResource("CapsuleShape2D_1g2vb")
 [node name="InitialPosition" type="Marker2D" parent="." unique_id=1409552055]
 
 [node name="JumpDelay" type="Timer" parent="." unique_id=1546450342]
+unique_name_in_owner = true
 wait_time = 0.3
+
+[node name="BetweenJumpDelay" type="Timer" parent="." unique_id=72932743]
+unique_name_in_owner = true
+wait_time = 0.2

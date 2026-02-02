@@ -2,12 +2,16 @@
 
 [ext_resource type="Script" uid="uid://n0yf8sm4ud1o" path="res://main.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://0e27jaj146vn" path="res://assets/backgrounds/bg_shroom.png" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://ba4aa7cfvwhrx" path="res://assets/sprites/tallShroom_brown.png" id="3_dg77c"]
 [ext_resource type="PackedScene" uid="uid://txtvxh61b34m" path="res://scenes/player.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://djdgq1wkwt4ey" path="res://scripts/fall_bound_area.gd" id="5_fba01"]
 [ext_resource type="Texture2D" uid="uid://bqpu8w4k7fl7b" path="res://assets/sprites/shroomBrownAltLeft.png" id="6_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://bs104j2en1j5u" path="res://assets/sprites/shroomBrownAltMid.png" id="7_w48qg"]
 [ext_resource type="PackedScene" uid="uid://cq84y4mrth2lp" path="res://scenes/frog.tscn" id="8_5vw27"]
 [ext_resource type="Texture2D" uid="uid://c2e1iwrt2vv2x" path="res://assets/sprites/shroomBrownAltRight.png" id="9_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://nkdmgg3ikaea" path="res://assets/grounds/dirt/dirtLeft.png" id="9_efxa6"]
+[ext_resource type="Texture2D" uid="uid://cm30p4lnuegcr" path="res://assets/grounds/dirt/dirtMid.png" id="10_dg77c"]
+[ext_resource type="Texture2D" uid="uid://0l3kuhm4inst" path="res://assets/grounds/dirt/dirtRight.png" id="11_ycdy4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(10296, 113)
@@ -47,6 +51,41 @@ sources/0 = SubResource("TileSetAtlasSource_7mycd")
 sources/1 = SubResource("TileSetAtlasSource_5vw27")
 sources/2 = SubResource("TileSetAtlasSource_kek77")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w48qg"]
+texture = ExtResource("9_efxa6")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:0/0/terrains_peering_bit/right_side = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vivmo"]
+texture = ExtResource("10_dg77c")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/left_side = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2cqfq"]
+texture = ExtResource("11_ycdy4")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:0/0/terrains_peering_bit/left_side = 0
+
+[sub_resource type="TileSet" id="TileSet_yaehf"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Dirt"
+terrain_set_0/terrain_0/color = Color(0.57662404, 0.30564025, 9.62615e-08, 1)
+sources/0 = SubResource("TileSetAtlasSource_w48qg")
+sources/1 = SubResource("TileSetAtlasSource_vivmo")
+sources/2 = SubResource("TileSetAtlasSource_2cqfq")
+
 [node name="Main" type="Node2D" unique_id=465478721]
 script = ExtResource("1_1bvp3")
 
@@ -55,28 +94,41 @@ scroll_offset = Vector2(-2272, -216)
 repeat_size = Vector2(2558, 0)
 repeat_times = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1407494520]
+[node name="Background" type="Sprite2D" parent="Parallax2D" unique_id=1407494520]
 position = Vector2(688, -71.99999)
 scale = Vector2(2.4980469, 2.5390627)
 texture = ExtResource("1_ig7tw")
 
-[node name="Player" parent="." unique_id=1610166616 instance=ExtResource("3_h2yge")]
-position = Vector2(-91, 8)
+[node name="Shrooms" type="Sprite2D" parent="Parallax2D" unique_id=1200439616]
+position = Vector2(0, 376)
+scale = Vector2(4, 4)
+texture = ExtResource("3_dg77c")
+
+[node name="Player" parent="." unique_id=1610166616 groups=["Player"] instance=ExtResource("3_h2yge")]
+position = Vector2(320, -136)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=323968336]
 
 [node name="FallBoundArea" type="Area2D" parent="." unique_id=1000068805]
-position = Vector2(2844, 312)
+position = Vector2(720, 520)
 script = ExtResource("5_fba01")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FallBoundArea" unique_id=785533858]
 position = Vector2(1948, 15.5)
 shape = SubResource("RectangleShape2D_1bvp3")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=343646199]
+[node name="Mushrooms" type="TileMapLayer" parent="." unique_id=343646199]
 position = Vector2(2844, -216)
-tile_map_data = PackedByteArray("AAD3/wQAAQAAAAAAAAD2/wQAAAAAAAAAAAD4/wQAAQAAAAAAAAD5/wQAAQAAAAAAAAD6/wQAAQAAAAAAAAD7/wQAAQAAAAAAAAD8/wQAAQAAAAAAAAD9/wQAAQAAAAAAAAD+/wQAAQAAAAAAAAD//wQAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAQAAQAAAAAAAAACAAQAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAQAAgAAAAAAAADV/wUAAQAAAAAAAADU/wUAAAAAAAAAAADW/wUAAQAAAAAAAADX/wUAAQAAAAAAAADY/wUAAgAAAAAAAADd/wUAAQAAAAAAAADc/wUAAAAAAAAAAADe/wUAAQAAAAAAAADf/wUAAgAAAAAAAADj/wUAAQAAAAAAAADi/wUAAAAAAAAAAADk/wUAAQAAAAAAAADl/wUAAgAAAAAAAADp/wMAAQAAAAAAAADo/wMAAAAAAAAAAADq/wMAAQAAAAAAAADr/wMAAgAAAAAAAADv/wUAAQAAAAAAAADu/wUAAAAAAAAAAADw/wUAAQAAAAAAAADx/wUAAQAAAAAAAADy/wUAAgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AADa/wMAAQAAAAAAAADZ/wMAAAAAAAAAAADb/wMAAQAAAAAAAADc/wMAAQAAAAAAAADd/wMAAQAAAAAAAADe/wMAAQAAAAAAAADf/wMAAgAAAAAAAAD9/wQAAQAAAAAAAAD8/wQAAAAAAAAAAAD+/wQAAQAAAAAAAAD//wQAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAQAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_272bh")
 
 [node name="Frog" parent="." unique_id=1739875316 instance=ExtResource("8_5vw27")]
 position = Vector2(2768, -8)
+
+[node name="Frog2" parent="." unique_id=901937603 instance=ExtResource("8_5vw27")]
+position = Vector2(1976, 256)
+
+[node name="Grounds" type="TileMapLayer" parent="." unique_id=1714997143]
+position = Vector2(2844, -216)
+tile_map_data = PackedByteArray("AADo/wQAAQAAAAAAAADn/wQAAQAAAAAAAADp/wQAAQAAAAAAAADq/wQAAQAAAAAAAADr/wQAAQAAAAAAAADs/wQAAQAAAAAAAADt/wQAAQAAAAAAAADu/wQAAQAAAAAAAADv/wQAAQAAAAAAAADw/wQAAQAAAAAAAADx/wQAAQAAAAAAAADy/wQAAQAAAAAAAADz/wQAAQAAAAAAAAD0/wQAAQAAAAAAAAD1/wQAAQAAAAAAAAD2/wQAAQAAAAAAAAD3/wQAAQAAAAAAAAD4/wQAAQAAAAAAAAD5/wQAAQAAAAAAAAD6/wQAAgAAAAAAAAD8/wQAAQAAAAAAAAD7/wQAAAAAAAAAAAD9/wQAAQAAAAAAAAD+/wQAAQAAAAAAAAD//wQAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAQAAQAAAAAAAAACAAQAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAQAAQAAAAAAAAAGAAQAAQAAAAAAAAAHAAQAAgAAAAAAAAAJAAQAAQAAAAAAAAAIAAQAAAAAAAAAAAAKAAQAAQAAAAAAAAALAAQAAQAAAAAAAAAMAAQAAQAAAAAAAAANAAQAAQAAAAAAAAAOAAQAAQAAAAAAAAAPAAQAAQAAAAAAAAAQAAQAAQAAAAAAAAARAAQAAgAAAAAAAADg/wQAAQAAAAAAAADf/wQAAQAAAAAAAADh/wQAAQAAAAAAAADi/wQAAQAAAAAAAADj/wQAAQAAAAAAAADk/wQAAQAAAAAAAADl/wQAAQAAAAAAAADm/wQAAQAAAAAAAADd/wQAAQAAAAAAAADe/wQAAQAAAAAAAADc/wQAAQAAAAAAAADb/wQAAQAAAAAAAADa/wQAAQAAAAAAAADZ/wQAAQAAAAAAAADY/wQAAQAAAAAAAADX/wQAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_yaehf")
