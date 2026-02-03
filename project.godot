@@ -15,6 +15,14 @@ run/main_scene="uid://cecksyld8lpbh"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PhantomCameraManager="*uid://duq6jhf6unyis"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+
 [input]
 
 move_left={
@@ -43,6 +51,7 @@ jump={
 [physics]
 
 3d/physics_engine="Jolt Physics"
+common/physics_interpolation=true
 
 [rendering]
 

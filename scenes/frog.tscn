@@ -40,6 +40,10 @@ animations = [{
 radius = 96.0
 height = 496.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ybftx"]
+radius = 16.0
+height = 48.0
+
 [node name="Frog" type="CharacterBody2D" unique_id=1739875316]
 script = ExtResource("1_1g2vb")
 
@@ -68,3 +72,10 @@ wait_time = 0.3
 [node name="BetweenJumpDelay" type="Timer" parent="." unique_id=72932743]
 unique_name_in_owner = true
 wait_time = 0.2
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1883917414]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=725984647]
+position = Vector2(0, -8)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_ybftx")
