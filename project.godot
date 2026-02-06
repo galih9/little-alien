@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="platforming-test"
-run/main_scene="uid://cecksyld8lpbh"
+run/main_scene="uid://c1vx32lq1hlhm"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 

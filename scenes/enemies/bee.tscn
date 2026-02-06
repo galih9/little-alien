@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://gjipn31j2t0d"]
+
+[ext_resource type="Texture2D" uid="uid://lnmem1xyy8ip" path="res://assets/enemies/bee_dead.png" id="1_ogg2i"]
+[ext_resource type="Texture2D" uid="uid://ffmfcu8ws2" path="res://assets/enemies/bee.png" id="1_vie5o"]
+[ext_resource type="Texture2D" uid="uid://xc4smeapahd2" path="res://assets/enemies/bee_move.png" id="2_ogg2i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xfac4"]
+radius = 42.0
+height = 116.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qf6nb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ogg2i")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vie5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ogg2i")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ogg2i"]
+radius = 553.0
+height = 1106.0
+
+[node name="Bee" type="CharacterBody2D" unique_id=21666109]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1512698116]
+position = Vector2(-1, 5)
+rotation = -1.0933748
+shape = SubResource("CapsuleShape2D_xfac4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1675933138]
+sprite_frames = SubResource("SpriteFrames_qf6nb")
+animation = &"dead"
+
+[node name="Vision" type="Area2D" parent="." unique_id=1702885433]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision" unique_id=773636236]
+shape = SubResource("CapsuleShape2D_ogg2i")

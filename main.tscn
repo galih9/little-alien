@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ba4aa7cfvwhrx" path="res://assets/sprites/tallShroom_brown.png" id="3_dg77c"]
 [ext_resource type="PackedScene" uid="uid://txtvxh61b34m" path="res://scenes/player.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://djdgq1wkwt4ey" path="res://scripts/fall_bound_area.gd" id="5_fba01"]
-[ext_resource type="PackedScene" uid="uid://cq84y4mrth2lp" path="res://scenes/frog.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://cq84y4mrth2lp" path="res://scenes/enemies/frog.tscn" id="8_5vw27"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(10296, 113)

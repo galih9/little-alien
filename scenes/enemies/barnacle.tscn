@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://5cb3ckstuidw"]
+
+[ext_resource type="Texture2D" uid="uid://c5xcuoqiju5bb" path="res://assets/enemies/barnacle_attack.png" id="1_ws4va"]
+[ext_resource type="Texture2D" uid="uid://duibk1dtmigkt" path="res://assets/enemies/barnacle_dead.png" id="2_c3oqt"]
+[ext_resource type="Texture2D" uid="uid://d4nvwqepg3fcr" path="res://assets/enemies/barnacle.png" id="3_ydmc1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cjkio"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ws4va")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c3oqt")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ydmc1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ws4va"]
+size = Vector2(69, 24)
+
+[node name="Barnacle" type="CharacterBody2D" unique_id=1381178639]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=172218562]
+polygon = PackedVector2Array(-46, 64, 46, 64, 46, 59, 31, 45, 30, 35, 35, 16, 34, -10, 34, -43, -33, -43, -34, -4, -35, 23, -31, 34, -30, 43, -38, 54, -47, 59)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1761037971]
+sprite_frames = SubResource("SpriteFrames_cjkio")
+animation = &"attack"
+
+[node name="HitArea" type="Area2D" parent="." unique_id=338059895]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea" unique_id=1414682275]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_ws4va")

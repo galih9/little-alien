@@ -3,7 +3,50 @@
 [ext_resource type="PackedScene" uid="uid://txtvxh61b34m" path="res://scenes/player.tscn" id="1_8uh7m"]
 [ext_resource type="TileSet" uid="uid://cjlm865qypc5m" path="res://new_tile_set.tres" id="2_6uqi0"]
 [ext_resource type="PackedScene" uid="uid://famsqlne1bav" path="res://scenes/pickable_item.tscn" id="3_6uqi0"]
-[ext_resource type="PackedScene" uid="uid://cq84y4mrth2lp" path="res://scenes/frog.tscn" id="4_ppyta"]
+[ext_resource type="PackedScene" uid="uid://cq84y4mrth2lp" path="res://scenes/enemies/frog.tscn" id="4_ppyta"]
+[ext_resource type="Texture2D" uid="uid://duhb6ycxmqooa" path="res://assets/tiles/water.png" id="5_vbegm"]
+[ext_resource type="Texture2D" uid="uid://h8sdp087cjes" path="res://assets/tiles/waterTop_high.png" id="6_ehkex"]
+[ext_resource type="Texture2D" uid="uid://cg4c0sip0gbgf" path="res://assets/tiles/waterTop_low.png" id="7_xersf"]
+[ext_resource type="PackedScene" uid="uid://cfm5galxcw5hh" path="res://scenes/enemies/fislane.tscn" id="8_ehkex"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_00tp4"]
+texture = ExtResource("5_vbegm")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/terrains_peering_bit/left_side = 0
+0:0/0/terrains_peering_bit/top_side = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_77dp3"]
+texture = ExtResource("6_ehkex")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/terrains_peering_bit/left_side = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5tkv4"]
+texture = ExtResource("7_xersf")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/terrains_peering_bit/left_side = 0
+
+[sub_resource type="TileSet" id="TileSet_0m0f1"]
+tile_size = Vector2i(128, 128)
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Sea"
+terrain_set_0/terrain_0/color = Color(0.17746282, 0.2183783, 0.9903621, 1)
+sources/0 = SubResource("TileSetAtlasSource_00tp4")
+sources/1 = SubResource("TileSetAtlasSource_77dp3")
+sources/2 = SubResource("TileSetAtlasSource_5tkv4")
 
 [node name="Node2D" type="Node2D" unique_id=1786603093]
 
@@ -22,3 +65,10 @@ position = Vector2(510, 48)
 
 [node name="Frog" parent="." unique_id=1739875316 instance=ExtResource("4_ppyta")]
 position = Vector2(2442, 466)
+
+[node name="Sea" type="TileMapLayer" parent="." unique_id=1979661061]
+tile_map_data = PackedByteArray("AAArAAUAAAAAAAAAAAArAAQAAAAAAAAAAAArAAMAAAAAAAAAAAArAAIAAQAAAAAAAAAqAAUAAAAAAAAAAAAqAAQAAAAAAAAAAAAqAAMAAAAAAAAAAAAqAAIAAQAAAAAAAAApAAUAAAAAAAAAAAApAAQAAAAAAAAAAAApAAMAAAAAAAAAAAApAAIAAQAAAAAAAAAoAAUAAAAAAAAAAAAoAAQAAAAAAAAAAAAoAAMAAAAAAAAAAAAoAAIAAQAAAAAAAAAnAAUAAAAAAAAAAAAnAAQAAAAAAAAAAAAnAAMAAAAAAAAAAAAnAAIAAQAAAAAAAAAmAAUAAAAAAAAAAAAmAAQAAAAAAAAAAAAmAAMAAAAAAAAAAAAmAAIAAQAAAAAAAAAlAAUAAAAAAAAAAAAlAAQAAAAAAAAAAAAlAAMAAAAAAAAAAAAlAAIAAQAAAAAAAAAkAAUAAAAAAAAAAAAkAAQAAAAAAAAAAAAkAAMAAAAAAAAAAAAkAAIAAQAAAAAAAAAjAAUAAAAAAAAAAAAjAAQAAAAAAAAAAAAjAAMAAAAAAAAAAAAjAAIAAQAAAAAAAAAiAAUAAAAAAAAAAAAiAAQAAAAAAAAAAAAiAAMAAAAAAAAAAAAiAAIAAQAAAAAAAAAhAAMAAAAAAAAAAAAhAAQAAAAAAAAAAAAhAAIAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_0m0f1")
+
+[node name="Fislane" parent="." unique_id=675780426 instance=ExtResource("8_ehkex")]
+position = Vector2(4974, 282)

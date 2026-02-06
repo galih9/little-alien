@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cfm5galxcw5hh"]
+
+[ext_resource type="Script" uid="uid://c6lyml1ef6jn6" path="res://scripts/fislane.gd" id="1_0v7ju"]
+[ext_resource type="PackedScene" uid="uid://blme6b5ahpu57" path="res://scenes/enemies/fish.tscn" id="1_t5c6q"]
+
+[sub_resource type="Curve2D" id="Curve2D_l32y7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -177.45967, 116.0017, 0, 0, 0, 0, -132.27823, 36.983086, 0, 0, 0, 0, -70.22178, 9.40271, 0, 0, 0, 0, 7.893135, 35.629448, 0, 0, 0, 0, 43.548378, 125.94866)
+}
+point_count = 5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gujft"]
+radius = 3142.2922
+
+[node name="Fislane" type="Node2D" unique_id=675780426]
+script = ExtResource("1_0v7ju")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1151510192]
+position = Vector2(255.00003, -512.57)
+scale = Vector2(3.6740742, 5.91)
+curve = SubResource("Curve2D_l32y7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1298635415]
+position = Vector2(-177.45967, 116.0017)
+rotation = -1.0513836
+
+[node name="Fish" parent="Path2D/PathFollow2D" unique_id=593975790 instance=ExtResource("1_t5c6q")]
+rotation = 1.4680321
+scale = Vector2(0.84024125, 0.6900293)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1245031626]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=361361316]
+shape = SubResource("CircleShape2D_gujft")
