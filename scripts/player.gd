@@ -24,6 +24,9 @@ var coyote_timer: float = 0.0
 var jump_buffer_timer: float = 0.0
 var is_crouching: bool = false
 var was_on_floor: bool = false
+var ispowered: bool = false
+
+var fireball_scene: PackedScene = preload("res://scenes/fireball.tscn")
 
 # Original values for crouch adjustments
 var original_collision_height: float
@@ -93,6 +96,10 @@ func _physics_process(delta: float) -> void:
 	
 	# Update animations and sprite direction
 	update_animation(input_direction)
+	
+	# Fireball logic
+	if Input.is_action_just_pressed("fire"):
+		fire()
 
 
 func update_animation(input_direction: float) -> void:
@@ -130,3 +137,28 @@ func update_crouch_state() -> void:
 		capsule.height = original_collision_height
 		collision_shape.position = original_collision_position
 		animated_sprite.position = original_sprite_position
+
+
+func power_up() -> void:
+	ispowered = true
+
+
+func fire() -> void:
+	if not ispowered:
+		return
+		
+	var fireball = fireball_scene.instantiate()
+	fireball.global_position = global_position
+	
+	# Adjust spawn position slightly
+	fireball.global_position.y -= 20
+	
+	# Set direction based on sprite flip
+	if animated_sprite.flip_h:
+		fireball.direction = -1
+		fireball.global_position.x -= 40
+	else:
+		fireball.direction = 1
+		fireball.global_position.x += 40
+		
+	get_parent().add_child(fireball)

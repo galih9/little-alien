@@ -1,217 +1,14 @@
-[gd_scene format=4 uid="uid://cecksyld8lpbh"]
+[gd_scene format=3 uid="uid://cecksyld8lpbh"]
 
 [ext_resource type="Script" uid="uid://n0yf8sm4ud1o" path="res://main.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://0e27jaj146vn" path="res://assets/backgrounds/bg_shroom.png" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://ba4aa7cfvwhrx" path="res://assets/sprites/tallShroom_brown.png" id="3_dg77c"]
 [ext_resource type="PackedScene" uid="uid://txtvxh61b34m" path="res://scenes/player.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://djdgq1wkwt4ey" path="res://scripts/fall_bound_area.gd" id="5_fba01"]
-[ext_resource type="Texture2D" uid="uid://bqpu8w4k7fl7b" path="res://assets/sprites/shroomBrownAltLeft.png" id="6_ycdy4"]
-[ext_resource type="Texture2D" uid="uid://bs104j2en1j5u" path="res://assets/sprites/shroomBrownAltMid.png" id="7_w48qg"]
 [ext_resource type="PackedScene" uid="uid://cq84y4mrth2lp" path="res://scenes/frog.tscn" id="8_5vw27"]
-[ext_resource type="Texture2D" uid="uid://c0i8058258x7c" path="res://assets/sprites/stemTopAlt.png" id="8_074og"]
-[ext_resource type="Texture2D" uid="uid://c2e1iwrt2vv2x" path="res://assets/sprites/shroomBrownAltRight.png" id="9_2cqfq"]
-[ext_resource type="Texture2D" uid="uid://c1qfdfpsatqgy" path="res://assets/sprites/stemVine.png" id="9_cegan"]
-[ext_resource type="Texture2D" uid="uid://c0e15tlyefv0q" path="res://assets/sprites/shroomBrownAltMidAlt.png" id="11_82xsv"]
-[ext_resource type="Texture2D" uid="uid://dscj466owhdoa" path="res://assets/sprites/stem.png" id="12_getpj"]
-[ext_resource type="Texture2D" uid="uid://dknegx51lsabq" path="res://assets/sprites/stemBase.png" id="13_ryguw"]
-[ext_resource type="Texture2D" uid="uid://ctdkn5xerfq4l" path="res://assets/sprites/stemBaseAlt.png" id="14_d13ii"]
-[ext_resource type="Texture2D" uid="uid://do1gi4p5p4jir" path="res://assets/sprites/stemCrown.png" id="15_1u8w0"]
-[ext_resource type="Texture2D" uid="uid://b27kw12liny18" path="res://assets/sprites/stemShroom.png" id="16_0odxb"]
-[ext_resource type="Texture2D" uid="uid://41vmnq2l25ve" path="res://assets/sprites/stemTop.png" id="17_lswn8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(10296, 113)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mycd"]
-texture = ExtResource("6_ycdy4")
-margins = Vector2i(0, 40)
-texture_region_size = Vector2i(70, 30)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35, -20, 35, -20, 35, 20, -35, 20)
-0:0/0/terrains_peering_bit/right_side = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
-texture = ExtResource("7_w48qg")
-texture_region_size = Vector2i(70, 40)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35, -20, 35, -20, 35, 20, -35, 20)
-0:0/0/terrains_peering_bit/right_side = 0
-0:0/0/terrains_peering_bit/left_side = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a6jrf"]
-texture = ExtResource("8_074og")
-margins = Vector2i(20, 0)
-texture_region_size = Vector2i(31, 70)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/terrain = 1
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -35, 20, -35, 20, 35, -20, 35)
-0:0/0/terrains_peering_bit/bottom_side = 1
-0:0/0/terrains_peering_bit/top_side = 1
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xuqvo"]
-texture = ExtResource("9_cegan")
-margins = Vector2i(20, 0)
-texture_region_size = Vector2i(31, 70)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/terrain = 1
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -35, 20, -35, 20, 35, -20, 35)
-0:0/0/terrains_peering_bit/bottom_side = 1
-0:0/0/terrains_peering_bit/top_side = 1
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kek77"]
-texture = ExtResource("9_2cqfq")
-texture_region_size = Vector2i(70, 40)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35, -20, 35, -20, 35, 20, -35, 20)
-0:0/0/terrains_peering_bit/left_side = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qsp4k"]
-texture = ExtResource("11_82xsv")
-texture_region_size = Vector2i(70, 40)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35, -20, 35, -20, 35, 20, -35, 20)
-0:0/0/terrains_peering_bit/right_side = 0
-0:0/0/terrains_peering_bit/left_side = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kq58d"]
-texture = ExtResource("12_getpj")
-margins = Vector2i(20, 0)
-texture_region_size = Vector2i(31, 70)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/terrain = 1
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -35, 20, -35, 20, 35, -20, 35)
-0:0/0/terrains_peering_bit/bottom_side = 1
-0:0/0/terrains_peering_bit/top_side = 1
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_seu75"]
-texture = ExtResource("13_ryguw")
-margins = Vector2i(20, 0)
-texture_region_size = Vector2i(31, 70)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/terrain = 1
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -35, 20, -35, 20, 35, -20, 35)
-0:0/0/terrains_peering_bit/bottom_side = 1
-0:0/0/terrains_peering_bit/top_side = 1
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_htxhm"]
-texture = ExtResource("14_d13ii")
-margins = Vector2i(15, 0)
-texture_region_size = Vector2i(40, 70)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/terrain = 1
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -35, 20, -35, 20, 35, -20, 35)
-0:0/0/terrains_peering_bit/bottom_side = 1
-0:0/0/terrains_peering_bit/top_side = 1
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jq2sk"]
-texture = ExtResource("15_1u8w0")
-margins = Vector2i(20, 0)
-texture_region_size = Vector2i(30, 70)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/terrain = 1
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -35, 20, -35, 20, 35, -20, 35)
-0:0/0/terrains_peering_bit/bottom_side = 1
-0:0/0/terrains_peering_bit/top_side = 1
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4k2k6"]
-texture = ExtResource("16_0odxb")
-margins = Vector2i(20, 0)
-texture_region_size = Vector2i(30, 70)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/terrain = 1
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -35, 20, -35, 20, 35, -20, 35)
-0:0/0/terrains_peering_bit/bottom_side = 1
-0:0/0/terrains_peering_bit/top_side = 1
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rl1p"]
-texture = ExtResource("17_lswn8")
-margins = Vector2i(20, 0)
-texture_region_size = Vector2i(31, 70)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/terrain = 1
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -35, 20, -35, 20, 35, -20, 35)
-0:0/0/terrains_peering_bit/bottom_side = 1
-0:0/0/terrains_peering_bit/top_side = 1
-
-[sub_resource type="TileSet" id="TileSet_272bh"]
-tile_size = Vector2i(70, 70)
-physics_layer_0/collision_layer = 1
-terrain_set_0/mode = 2
-terrain_set_0/terrain_0/name = "BrownShroom 0"
-terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-terrain_set_0/terrain_1/name = "Stems"
-terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_7mycd")
-sources/1 = SubResource("TileSetAtlasSource_5vw27")
-sources/2 = SubResource("TileSetAtlasSource_kek77")
-sources/3 = SubResource("TileSetAtlasSource_qsp4k")
-sources/4 = SubResource("TileSetAtlasSource_kq58d")
-sources/5 = SubResource("TileSetAtlasSource_seu75")
-sources/6 = SubResource("TileSetAtlasSource_htxhm")
-sources/7 = SubResource("TileSetAtlasSource_jq2sk")
-sources/8 = SubResource("TileSetAtlasSource_4k2k6")
-sources/9 = SubResource("TileSetAtlasSource_0rl1p")
-sources/10 = SubResource("TileSetAtlasSource_a6jrf")
-sources/11 = SubResource("TileSetAtlasSource_xuqvo")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_074og"]
-texture = ExtResource("6_ycdy4")
-texture_region_size = Vector2i(70, 40)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35, -20, 35, -20, 35, 20, -35, 20)
-0:0/0/terrains_peering_bit/right_side = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cegan"]
-texture = ExtResource("7_w48qg")
-texture_region_size = Vector2i(70, 40)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/terrain = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35, -20, 35, -20, 35, 20, -35, 20)
-0:0/0/terrains_peering_bit/right_side = 0
-0:0/0/terrains_peering_bit/left_side = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_82xsv"]
-texture = ExtResource("11_82xsv")
-texture_region_size = Vector2i(70, 40)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/terrain = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35, -20, 35, -20, 35, 20, -35, 20)
-0:0/0/terrains_peering_bit/right_side = 0
-0:0/0/terrains_peering_bit/left_side = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_getpj"]
-texture = ExtResource("9_2cqfq")
-texture_region_size = Vector2i(70, 40)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35, -20, 35, -20, 35, 20, -35, 20)
-0:0/0/terrains_peering_bit/left_side = 0
-
-[sub_resource type="TileSet" id="TileSet_ryguw"]
-tile_size = Vector2i(70, 40)
-physics_layer_0/collision_layer = 1
-terrain_set_0/mode = 2
-terrain_set_0/terrain_0/name = "Shrooms"
-terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_074og")
-sources/1 = SubResource("TileSetAtlasSource_cegan")
-sources/2 = SubResource("TileSetAtlasSource_82xsv")
-sources/3 = SubResource("TileSetAtlasSource_getpj")
 
 [node name="Main" type="Node2D" unique_id=465478721]
 script = ExtResource("1_1bvp3")
@@ -235,6 +32,7 @@ texture = ExtResource("3_dg77c")
 position = Vector2(320, -136)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=323968336]
+process_callback = 1
 zoom = Vector2(0.5, 0.5)
 
 [node name="FallBoundArea" type="Area2D" parent="." unique_id=1000068805]
@@ -245,17 +43,8 @@ script = ExtResource("5_fba01")
 position = Vector2(1948, 15.5)
 shape = SubResource("RectangleShape2D_1bvp3")
 
-[node name="Mushrooms" type="TileMapLayer" parent="." unique_id=343646199]
-position = Vector2(2844, -216)
-tile_map_data = PackedByteArray("AADa/wMAAQAAAAAAAADZ/wMAAAAAAAAAAADb/wMAAQAAAAAAAADc/wMAAQAAAAAAAADd/wMAAQAAAAAAAADe/wMAAQAAAAAAAADf/wMAAgAAAAAAAAD9/wQAAQAAAAAAAAD8/wQAAAAAAAAAAAD+/wQAAQAAAAAAAAD//wQAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAQAAgAAAAAAAADc/wQACwAAAAAAAAA=")
-tile_set = SubResource("TileSet_272bh")
-
 [node name="Frog" parent="." unique_id=1739875316 instance=ExtResource("8_5vw27")]
 position = Vector2(2768, -8)
 
 [node name="Frog2" parent="." unique_id=901937603 instance=ExtResource("8_5vw27")]
 position = Vector2(1976, 256)
-
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1397997256]
-tile_map_data = PackedByteArray("AAADAAEAAAAAAAAAAAAEAAEAAQAAAAAAAAAFAAEAAQAAAAAAAAAGAAEAAQAAAAAAAAAHAAEAAQAAAAAAAAA=")
-tile_set = SubResource("TileSet_ryguw")

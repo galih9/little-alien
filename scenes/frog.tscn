@@ -37,8 +37,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1g2vb"]
-radius = 96.0
-height = 496.0
+radius = 218.0
+height = 1368.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ybftx"]
 radius = 16.0
@@ -59,7 +59,7 @@ animation = &"idle"
 [node name="Vision" type="Area2D" parent="." unique_id=1536468753]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision" unique_id=1521508000]
-position = Vector2(0, -72)
+position = Vector2(0, -194)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_1g2vb")
 
