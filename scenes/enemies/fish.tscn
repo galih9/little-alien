@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://blme6b5ahpu57"]
 
 [ext_resource type="Texture2D" uid="uid://b6vuoluuw2r2y" path="res://assets/enemies/fishBlue.png" id="1_8g0i4"]
+[ext_resource type="Script" uid="uid://bq11f2xxle07v" path="res://scripts/fish.gd" id="1_qevg2"]
 [ext_resource type="Texture2D" uid="uid://dwyd4oak0iqar" path="res://assets/enemies/fishBlue_dead.png" id="2_nub35"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pgks6"]
@@ -25,6 +26,7 @@ animations = [{
 }]
 
 [node name="Fish" type="CharacterBody2D" unique_id=593975790]
+script = ExtResource("1_qevg2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=912319045]
 shape = SubResource("CapsuleShape2D_pgks6")

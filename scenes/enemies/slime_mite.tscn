@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dge6rwusxots1"]
+
+[ext_resource type="Texture2D" uid="uid://ddhniuqvxjcv5" path="res://assets/enemies/slimeGreen_dead.png" id="1_01udf"]
+[ext_resource type="Script" uid="uid://d0jg02rok5mn1" path="res://scripts/slime_mite.gd" id="1_qt8fg"]
+[ext_resource type="Texture2D" uid="uid://dn7e3edbtrbsu" path="res://assets/enemies/slimeGreen_move.png" id="2_qt8fg"]
+[ext_resource type="Texture2D" uid="uid://cpsxap6uu8w2h" path="res://assets/enemies/slimeGreen.png" id="3_0v5ki"]
+[ext_resource type="Texture2D" uid="uid://bo8pe72q1o0m0" path="res://assets/enemies/slimeGreen_hit.png" id="4_55h82"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ytugp"]
+radius = 29.0
+height = 112.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_esknd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_01udf")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qt8fg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0v5ki")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_55h82")
+}],
+"loop": true,
+"name": &"spawn",
+"speed": 5.0
+}]
+
+[node name="SlimeMite" type="CharacterBody2D" unique_id=1001949164]
+script = ExtResource("1_qt8fg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=686375056]
+position = Vector2(0, -18)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_ytugp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=432696841]
+position = Vector2(0, -50)
+sprite_frames = SubResource("SpriteFrames_esknd")
+animation = &"move"
+frame_progress = 0.76745504

@@ -25,6 +25,7 @@ var jump_buffer_timer: float = 0.0
 var is_crouching: bool = false
 var was_on_floor: bool = false
 var ispowered: bool = false
+var health: int = 3
 
 var fireball_scene: PackedScene = preload("res://scenes/fireball.tscn")
 
@@ -162,3 +163,17 @@ func fire() -> void:
 		fireball.global_position.x += 40
 		
 	get_parent().add_child(fireball)
+
+
+func take_damage(amount: int) -> void:
+	health -= amount
+	if health <= 0:
+		die()
+	else:
+		# Optional: Add hurt animation or effect here
+		print("Player took damage! Health: ", health)
+
+func die() -> void:
+	print("Player died!")
+	# For now, just reload the scene
+	get_tree().reload_current_scene()

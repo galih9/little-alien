@@ -9,9 +9,6 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gujft"]
-radius = 3142.2922
-
 [node name="Fislane" type="Node2D" unique_id=675780426]
 script = ExtResource("1_0v7ju")
 
@@ -21,14 +18,10 @@ scale = Vector2(3.6740742, 5.91)
 curve = SubResource("Curve2D_l32y7")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1298635415]
+unique_name_in_owner = true
 position = Vector2(-177.45967, 116.0017)
 rotation = -1.0513836
 
 [node name="Fish" parent="Path2D/PathFollow2D" unique_id=593975790 instance=ExtResource("1_t5c6q")]
 rotation = 1.4680321
 scale = Vector2(0.84024125, 0.6900293)
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1245031626]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=361361316]
-shape = SubResource("CircleShape2D_gujft")

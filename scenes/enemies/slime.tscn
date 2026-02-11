@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://t73ohawyiju8"]
+
+[ext_resource type="Texture2D" uid="uid://dxogmurds3i51" path="res://assets/enemies/slimeBlock_dead.png" id="1_4h4y0"]
+[ext_resource type="Script" uid="uid://d2ol60ohuwbb2" path="res://scripts/slime.gd" id="1_b58ev"]
+[ext_resource type="Texture2D" uid="uid://dr4o4nbnsrmg0" path="res://assets/enemies/slimeBlock.png" id="2_b58ev"]
+[ext_resource type="Texture2D" uid="uid://cgylulkr6ufud" path="res://assets/enemies/slimeBlock_move.png" id="3_ankfk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e12yk"]
+size = Vector2(92, 92)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhme6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4h4y0")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 4.0,
+"texture": ExtResource("2_b58ev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ankfk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b58ev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ankfk")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b58ev"]
+radius = 70.062096
+height = 819.7145
+
+[node name="Slime" type="CharacterBody2D" unique_id=527269616]
+script = ExtResource("1_b58ev")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1848659200]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_e12yk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2137554020]
+position = Vector2(0, -22)
+sprite_frames = SubResource("SpriteFrames_bhme6")
+animation = &"idle"
+frame_progress = 0.065397285
+
+[node name="Area2D" type="Area2D" parent="." unique_id=210906766]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=247880334]
+position = Vector2(-4.7683716e-07, -247.00002)
+rotation = -1.5707964
+scale = Vector2(4.127164, 1.7309724)
+shape = SubResource("CapsuleShape2D_b58ev")
